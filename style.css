@@ -386,6 +386,103 @@ body {
     animation: progress 3s infinite;
 }
 
+/* Replace the existing play button glow effect with this: */
+
+/* Play button glow effect */
+#play-button {
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+}
+
+.play-button-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+  
+.play-button-container::before, 
+.play-button-container::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    opacity: 0.2;
+    pointer-events: none;
+}
+  
+.play-button-container::before {
+    width: 30px;
+    height: 30px;
+    animation: pulse1 2s infinite;
+}
+  
+.play-button-container::after {
+    width: 30px;
+    height: 30px;
+    animation: pulse2 2s infinite;
+    animation-delay: 0.5s;
+}
+  
+@keyframes pulse1 {
+    0% {
+      transform: scale(1);
+      opacity: 0.2;
+    }
+    50% {
+      transform: scale(1.5);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0;
+    }
+}
+  
+@keyframes pulse2 {
+    0% {
+      transform: scale(1);
+      opacity: 0.2;
+    }
+    50% {
+      transform: scale(1.8);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0;
+    }
+}
+  
+#play-button:hover {
+    color: #557bee;
+    transform: scale(1.1);
+}
+  
+.play-button-container:hover::before,
+.play-button-container:hover::after {
+    background-color: #557bee;
+    opacity: 0.3;
+    animation-duration: 1.5s;
+}
+
+.play-button-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+  
 @keyframes progress {
     0% { width: 0; }
     100% { width: 100%; }
@@ -517,7 +614,7 @@ section {
 .project-card.featured {
     grid-column: 1 / -1;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
     gap: 0;
 }
 
