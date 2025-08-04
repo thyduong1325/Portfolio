@@ -899,7 +899,7 @@ section {
 /* Contact Form */
 .contact-form {
     background: var(--bg-secondary);
-    padding: 2rem;
+    padding: 4.1rem;
     border-radius: 15px;
     box-shadow: 0 10px 30px var(--shadow);
     border: 1px solid var(--border-color);
